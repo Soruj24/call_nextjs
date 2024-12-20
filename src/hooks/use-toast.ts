@@ -22,7 +22,7 @@ function genId() {
   return count.toString()
 }
 
-// Directly use the string literals instead of actionTypes object
+// Action types are used here directly
 type Action =
   | {
       type: "ADD_TOAST"
@@ -113,6 +113,8 @@ export const reducer = (state: State, action: Action): State => {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       }
+    default:
+      return state
   }
 }
 
